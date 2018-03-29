@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    
+</head>
+<body>
+<button id="btn">Click</button>
+    <hr />
+    <input type="text" id="input" />
+
+    <div id="output"></div>
+</body>
+<script>
+        //create a variable for button.
+        const btn = $('#btn');
+        const input = $('#input');
+        const output = $('#output');
+        //create a variable for observable.money sign is not rquired.this tells this variable is actual observable and represent a stream.
+        //fromEvent(actualelement,type of event) operator.
+        //creating an observable.we are creating from event here.
+        const btnStream$ = Rx.Observable.fromEvent(btn, 'click');
+    //subscribe to observable.subscribe(return the stream of data in the stream,return any error,will be run when completed if it does complete)
+    //1st function is only required.
+        btnStream$.subscribe(
+            function (e) {
+                console.log(e);
+            },
+            function (err) {
+                console.log(err);
+            },
+            function()
+            {
+                console.log('Completed');
+            });
+
+        const inputStream$ = Rx.Observable.fromEvent(input, 'keyup');
+        inputStream$.subscribe(
+            function(e)
+            {
+                console.log(e.currentTarget.value);
+                output.append(e.target.value);
+            },
+            function(err)
+            {
+                console.log(err);
+            },
+            function()
+            {
+                console.log("completed.");
+            }
+            );
+        const moveStream$ = Rx.Observable.fromEvent(document,'mousemove');
+        moveStream$.subscribe(
+            function(e){
+                console.log(e.target.value);
+                //output.append('X: '+e.clientX+'Y: '+e.clientY);
+                output.html('<h1>X: ' + e.clientX + 'Y: ' + e.clientY+'</h1>');
+            },
+            function(err)
+            {
+                console.log(err);
+            },
+            function()
+            {
+                console.log('Completed');
+            }
+        );
+</script>
+</html>

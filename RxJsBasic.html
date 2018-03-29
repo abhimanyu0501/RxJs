@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    <script>
+        var button = document.querySelector('button');
+        Rx.Observable.fromEvent(button,'click').scan(count=>count+1,0).subscribe(count => console.log('Clicked ${count} times'));
+    </script>
+</head>
+<body>
+<button>click</button>
+</body>
+</html>

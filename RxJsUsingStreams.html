@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    <script>
+        const streamA$ = Rx.Observable.of(2);
+        const streamB$ = Rx.Observable.of(4);
+        const streamC$ = Rx.Observable.concat(streamA$, streamB$)
+          .reduce((x, y) => x + y);
+        streamC$.subscribe(console.log);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

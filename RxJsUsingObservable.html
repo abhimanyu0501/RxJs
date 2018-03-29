@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+    <script>
+        //of(arg)-	Converts arguments to an observable sequence
+        const streamA$ = Rx.Observable.of(2,10,25,9);
+        //Rx-global variable. 
+//of-create an obseravable that emits some value you specifies as arguments immediately one after the other.than emits the complete notification.
+        const streamB$ = Rx.Observable.of(4);
+//concat()- creates an output observable which sequentially emits all values from given observable and than moves on to the next.
+//reduce() - applies an accumulator function over the source Observable and returns the accumulated result when the source completes .given an optional seed value.
+        const streamC$ = Rx.Observable.concat(streamA$, streamB$).reduce((a, b) =>  a +b );
+//subscribe() - 
+        streamC$.subscribe(console.log);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

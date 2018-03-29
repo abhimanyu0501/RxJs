@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.7/dist/global/Rx.js"></script>
+
+</head>
+<body>
+<ul id="posts">
+
+</ul>
+</body>
+<script>
+    /*
+    const numbers = [33, 44, 55, 66, 77];
+//from() is operator.inside from operator add callback function by using => . v is actual value
+    const number$ = Rx.Observable.from(numbers);
+
+        number$.subscribe(
+    
+//it is outputing as a observable sequence.
+        v=> {
+            console.log(v);
+        },
+        err => {
+            console.log(err);
+        },
+        complete => {
+            console.log('Completed');
+        }
+    );
+
+        const posts = [
+            { title: 'Post One', body: 'This is the body' },
+            { title: 'Post Two', body: 'This is the body' },
+            { title: 'Post Three', body: 'This is the body' },
+        ];
+
+        const posts$ = Rx.Observable.from(posts);
+
+        posts$.subscribe(
+
+    //it is outputing as a observable sequence.
+            post=> {
+                console.log(post);
+                $('#posts').append('<li><h3>' + post.title + '<h3><p>'+post.body+'</p></li>');
+            },
+            err => {
+                console.log(err);
+            },
+            complete => {
+                console.log('Completed');
+            }
+        );
+        */
+
+    //set is basically an array that can have any type of data. it can be string,number or object.
+/*
+    const set = new Set(['Hello', 44, { title: 'My Title' }]);
+
+    const set$ = Rx.Observable.from(set);
+
+    set$.subscribe(
+
+//it is outputing as a observable sequence.
+        v=> {
+            console.log(v);
+            
+        },
+        err => {
+            console.log(err);
+        },
+        complete => {
+            console.log('Completed');
+        }
+    );
+*/
+
+    const map = new Map([[1,2],[3,4],[5,6]]);
+    //it is from operator.
+    const map$ = Rx.Observable.from(map);
+
+    map$.subscribe(
+
+//it is outputing as a observable sequence.
+        v=> {
+            console.log(v);
+
+        },
+        err => {
+            console.log(err);
+        },
+        complete => {
+            console.log('Completed');
+        }
+    );
+
+
+</script>
+</html>
